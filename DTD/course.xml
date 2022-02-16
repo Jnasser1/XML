@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE email SYSTEM "course.dtd" >
+<course>
+	This is a great course!
+	<name>
+		XML and DTD
+	</name>
+	<price> $100 </price>
+	<rating> 5</rating>
+</course>
+
