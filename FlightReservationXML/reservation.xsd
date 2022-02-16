@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http:/jihadairlines.org/Reservation"
+	xmlns:tns="http:/jihadairlines.org/Reservation">
+
+<include schemaLocation="flight.xsd"></include>
+<include schemaLocation="common.xsd"></include>
+
+
+	<element name="reservation">
+		<complexType>
+			<sequence>
+				<element name="Flight" type="tns:Flight" />
+				<element name="Passenger" type="tns:Passenger" />
+			</sequence>
+		</complexType>
+	</element>
+
+
+	<complexType name="Passenger">
+		<sequence>
+			<element name="lastName" type="tns:StringMax20" />
+			<element name="firstName" type="tns:StringMax20" />
+			<element name="middleName" type="tns:StringMax20" />
+			<element name="email" type="tns:EmailValid" />
+			<element name="phone" type="tns:StringPhoneNumber" />
+		</sequence>
+	</complexType>
+
+
+
+<simpleType name="EmailValid">
+<restriction base="string">
+<!--  email regrex. 
+encoded text strings designed to match patterns in other strings. -->
+<pattern value="[^@]+@[^\.]+\..+"/>
+</restriction>
+</simpleType>
+
+
+
+	<simpleType name="StringPhoneNumber">
+		<restriction base="string">
+			<pattern value="[0-9]{10}" /> <!-- 10 digits from {1,..9} for phone#. -->
+		</restriction>
+	</simpleType>
+
+</schema>

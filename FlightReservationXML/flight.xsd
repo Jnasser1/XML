@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http:/jihadairlines.org/Reservation"
+	xmlns:tns="http:/jihadairlines.org/Reservation">
+
+	<include schemaLocation="common.xsd"></include>
+
+	<complexType name="Flight">
+		<sequence>
+			<element name="flightNumber" type="tns:StringMax20" />
+			<element name="operatingAirlines"
+				type="tns:OperatingAirlines" />
+			<element name="arrivalCity" type="tns:StringMax20" />
+			<element name="dateOfDeparture" type="date" />
+			<element name="estimatedDepartureTime" type="time" />
+
+		</sequence>
+	</complexType>
+
+
+	<simpleType name="OperatingAirlines">
+		<restriction base="string">
+			<enumeration value="Delta Airlines" />
+			<enumeration value="Spirit Airlines" />
+			<enumeration value="American Airlines" />
+			<enumeration value=" Frontier Airlines" />
+			<enumeration value=" Alaskan Airlines" />
+			<enumeration value=" Southwest Airlines" />
+		</restriction>
+	</simpleType>
+
+
+</schema>

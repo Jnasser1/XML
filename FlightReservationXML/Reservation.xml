@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:reservation
+	xmlns:tns="http:/jihadairlines.org/Reservation"
+	xmlns:xsi="http:/jihadairlines.org/Reservation"
+	xsi:schemaLocation="http:/jihadairlines.org/Reservation reservation.xsd ">
+	<tns:Flight>
+		<tns:flightNumber> flightnumber </tns:flightNumber>
+		<tns:operatingAirlines>Delta Airlines</tns:operatingAirlines>
+		<tns:arrivalCity> arrivalcity </tns:arrivalCity>
+		<tns:dateOfDeparture>2001-01-01</tns:dateOfDeparture>
+		<tns:estimatedDepartureTime>12:00:00</tns:estimatedDepartureTime>
+	</tns:Flight>
+	<tns:Passenger>
+		<tns:lastName>tns:lastName</tns:lastName>
+		<tns:firstName>tns:firstName</tns:firstName>
+		<tns:middleName>tns:middleName</tns:middleName>
+		<tns:email>tns:email</tns:email>
+		<tns:phone>tns:phone</tns:phone>
+	</tns:Passenger>
+</tns:reservation>
