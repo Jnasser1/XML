@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:event id="123765"
+	xmlns:tns="http://www.jihadEventManagement.com/Event"
+	xmlns:tns1="http://www.jihadEventManagement.com/common"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.jihadEventManagement.com/Event Event.xsd ">
+	<tns:name>Jihad </tns:name>
+	<tns:description>tns:description</tns:description>
+	<tns:ticketPrice>50</tns:ticketPrice>
+	<tns:startTime>2001-12-31T12:00:00</tns:startTime>
+	<tns:endTime>2001-12-31T12:00:00</tns:endTime>
+	<tns:organizer id="123765">
+		<tns:name>tns:name</tns:name>
+		<tns:email>jihadnass96@gmail.com</tns:email>
+		<tns:phone>3138504076</tns:phone>
+	</tns:organizer>
+	<tns:venue id="123765">
+		<tns:name>St Andrews</tns:name>
+		<tns:street>746 Grand River Ave</tns:street>
+		<tns:city>Lansing</tns:city>
+		<tns:state>MI</tns:state>
+		<tns:country>USA</tns:country>
+		<tns:zipcode>48858</tns:zipcode>
+	</tns:venue>
+	<tns:participant id="123765">
+		<tns:name>James</tns:name>
+		<tns:email>james@doe.com</tns:email>
+		<tns:phone>3138504075</tns:phone>
+	</tns:participant>
+	<tns:participant id="123767">
+		<tns:name>John</tns:name>
+		<tns:email>john@doe.com</tns:email>
+		<tns:phone>3138504077</tns:phone>
+	</tns:participant>
+	<tns:participant id="123766">
+		<tns:name>Carla</tns:name>
+		<tns:email>C@c.com</tns:email>
+		<tns:phone>3138504078</tns:phone>
+	</tns:participant>
+</tns:event>
