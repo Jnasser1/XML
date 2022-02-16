@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Patient xmlns:tns="http://www.companywebsite.org/Patient"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.companywebsite.org/Patient Patient.xsd " id="123">
+	<tns:name> Jihad </tns:name>
+	<tns:age> 25 </tns:age>
+	<tns:email> jihadnass96@gmail.com </tns:email>
+	<tns:gender>M</tns:gender>
+	<tns:phone>313-222-3244</tns:phone>
+	<tns:PaymentType>
+		<tns:insurance>
+			<tns:limit>10000</tns:limit>
+			<tns:provider> BCBS </tns:provider>
+		</tns:insurance>
+
+	</tns:PaymentType>
+</tns:Patient>

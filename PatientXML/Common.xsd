@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.companywebsite.org/Common"
+	xmlns:tns="http://www.companywebsite.org/Patient"
+	elementFormDefault="qualified">
+
+
+
+
+
+
+	<simpleType name="Id">
+		<restriction base="int">
+			<pattern value="[0-7]*">
+			</pattern>
+		</restriction>
+	</simpleType>
+
+
+</schema>

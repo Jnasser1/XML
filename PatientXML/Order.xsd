@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.company.com/order"
+	xmlns:tns="http://www.company.com/order" elementFormDefault="qualified">
+
+	<element name="order" type="tns:order" />
+	<complexType name="order">
+		<sequence>
+			<element name="customer" type="tns:customer" />
+			<element name="product" type="tns:product" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="id" type="tns:Id"/>
+
+
+	</complexType>
+
+	<complexType name="customer">
+		<sequence>
+			<element name="name" type="string" />
+			<element name="phone" type="string" minOccurs="0" />
+			
+		</sequence>
+		<attribute name="id" type="tns:Id"/>
+	</complexType>
+
+	<complexType name="product">
+		<sequence>
+			<element name="name" type="tns:String15" />
+			<element name="description" type="tns:String100" />
+			<element name="price" type="int" />
+			<element name="category" type="tns:category" />
+
+		</sequence>
+		<attribute name="id" type="tns:Id"/>
+	</complexType>
+
+
+
+	<simpleType name="Id">
+		<restriction base="int">
+			<minInclusive value="0" />
+			<maxInclusive value="50" />
+		</restriction>
+	</simpleType>
+	
+	
+	<simpleType name="String15">
+		<restriction base="string">
+			<maxLength value="20" />
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="String100">
+		<restriction base="string">
+			<maxLength value="20" />
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="category">
+		<restriction base="string">
+			<enumeration value="electronics" />
+			<enumeration value="books" />
+			<enumeration value="shoes" />
+		</restriction>
+	</simpleType>
+</schema>
