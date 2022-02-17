@@ -1,8 +1,6 @@
 package parsers;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -18,7 +16,6 @@ import org.xml.sax.SAXException;
 import dto.Event;
 import dto.Organizer;
 import dto.Venue;
-import dto.Participant;
 
 
 public class DOMparser {
@@ -30,7 +27,6 @@ public class DOMparser {
 		Document document = documentBuilder.parse(ClassLoader.getSystemResourceAsStream("xml/event.xml"));
 		Event event = new Event();
 
-		
 		NodeList nameList = document.getElementsByTagName("tns:name");
 		Node nameItem = nameList.item(0);
 		event.setName(nameItem.getTextContent());
@@ -46,11 +42,8 @@ public class DOMparser {
 		NodeList startTimeList = document.getElementsByTagName("tns:startTime");
 		Node startTimeItem = startTimeList.item(0);
 		LocalDateTime date = LocalDateTime.parse(startTimeItem.getTextContent());
-		System.out.println(date);
 		event.setStartTime(date);
 
-		
-		
 		NodeList endTimeList = document.getElementsByTagName("tns:endTime");
 		Node endTimeItem = endTimeList.item(0);
 		LocalDateTime endtimeDate = LocalDateTime.parse(endTimeItem.getTextContent());
@@ -125,54 +118,41 @@ public class DOMparser {
 
 		event.setVenue(venue);
 
-		
-	
-		
-//		NodeList participantList = document.getElementsByTagName("tns:participant");
-//		Participant participant = new Participant();
-//		Participant[] participants = new Participant[participantList.getLength()];
-//		
-//	for (int j=0; j<participantList.getLength(); j++) {
-//		Node participantNode = participantList.item(j);
-//		NodeList participantChildNodes = participantNode.getChildNodes();
-//		
-//		for (int i = 0; i < participantChildNodes.getLength(); i++) {
-//			Node item = participantChildNodes.item(i);
-//
-//			if (item instanceof Element) {
-//
-//				switch (item.getNodeName()) {
-//				case "tns:name":
-//					participant.setName(item.getTextContent());
-//					break;
-//				case "tns:email":
-//					participant.setEmail(item.getTextContent());
-//					break;
-//				case "tns:phone":
-//					participant.setPhone(item.getTextContent());
-//					break;
-//
-//				}
-//			}
-//
-//			participants[i]=participant;
-//		}
-//	}
-//		
-//	event.SetArray(participants);
-//	
-	
-		System.out.println(event.getId());
-		System.out.println(event.getName());
-		System.out.println(event.getDescription());
-		System.out.println(event.getTicketPrice());
-		System.out.println(event.getStartTime());
-		System.out.println(event.getEndTime());
-		System.out.println(event.getOrganizer().getName());
-		System.out.println(event.getOrganizer().getEmail());
-		System.out.println(event.getOrganizer().getPhone());
+		System.out.println("Event id: " + event.getId());
+		System.out.println("Event name: " + event.getName());
+		System.out.println("Event description: " + event.getDescription());
+		System.out.println("Event ticket price: " + event.getTicketPrice());
+		System.out.println("Event start time: " + event.getStartTime());
+		System.out.println("Event end time: " + event.getEndTime());
+		System.out.println("Organizer name: " + event.getOrganizer().getName());
+		System.out.println("Organizer email: " + event.getOrganizer().getEmail());
+		System.out.println("Organizer phone: " + event.getOrganizer().getPhone());
+		System.out.println("Venue name: " + event.getVenue().getName());
+		System.out.println("Venue street: " + event.getVenue().getStreet());
+		System.out.println("Venue state: " + event.getVenue().getState());
+		System.out.println("Venue country: " + event.getVenue().getCountry());
+		System.out.println("Venue zipcode " + event.getVenue().getZipcode());
 
-		
+		NodeList participantList = document.getElementsByTagName("tns:participant");
+
+		for (int j = 0; j < participantList.getLength(); j++) {
+			Node participantNode = participantList.item(j);
+
+			if (participantNode.getNodeType() == Node.ELEMENT_NODE) {
+				Element element = (Element) participantNode;
+				String id = element.getAttribute("id");
+				String name = element.getElementsByTagName("tns:name").item(0).getTextContent();
+				String email = element.getElementsByTagName("tns:email").item(0).getTextContent();
+				String phone = element.getElementsByTagName("tns:phone").item(0).getTextContent();
+
+				System.out.println("Participant id: " + id);
+				System.out.println("Participant name: " + name);
+				System.out.println("Participant email: " + email);
+				System.out.println("Participant phone: " + phone);
+
+			}
+
+		}
+
 	}
-
 }
