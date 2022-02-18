@@ -5,39 +5,53 @@
 		<html>
 			<body>
 				<h2>
-					Order Details:
+					Order details for customer:
+					<xsl:value-of select="Order/CustomerName"/>
+							
 				</h2>
-
 				<h3>
-					<xsl:value-of select="Order/CustomerName" />
-				</h3>
-
-
-				<h3>
-					<xsl:value-of select="Order/@id" />
+				OrderId: <xsl:value-of select="Order/@id"/>
 				</h3>
 
 				<table border="1">
-					<tr bgcolor="blue">
-						<th> Item Id</th>
-						<th> Item Name </th>
+					<tr>
+						<th> ItemId</th>
+						<th> ItemName </th>
 						<th> Price </th>
-						<th> Quantity</th>
+						<th>  Quantity</th>
+						<th> Category</th>
 					</tr>
 
 					<xsl:for-each select="Order/Item">
+					<xsl:sort select ="Price" data-types="number" order="descending"/>
+					
 						<tr>
 							<td>
-								<xsl:value-of select="ItemId"/>
+								<xsl:value-of select="ItemId" />
 							</td>
 							<td>
-								<xsl:value-of select="ItemName"/>
+								<xsl:value-of select="ItemName" />
 							</td>
 							<td>
-								<xsl:value-of select="Price"/>
+								<xsl:value-of select="Price" />
 							</td>
 							<td>
-								<xsl:value-of select="Quantity"/>
+								<xsl:value-of select="Quantity" />
+							</td>
+
+							<td>
+								<xsl:choose>
+									<xsl:when test="Price>=100">
+										<b> Platinum</b>
+									</xsl:when>
+									<xsl:when test="Price>=20">
+										<b>Gold</b>
+									</xsl:when>
+									<xsl:otherwise>
+										<b> Silver </b>
+									</xsl:otherwise>
+
+								</xsl:choose>
 							</td>
 						</tr>
 					</xsl:for-each>
